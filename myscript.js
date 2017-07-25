@@ -1,9 +1,9 @@
 var shouldChange = true;
 function checkDOMChange()
 {
-    if (document.getElementById(":n6")) {
+    if (document.getElementsByClassName("Am Al editable LW-avf").length > 0) {
         if(shouldChange == true) {
-            document.getElementById(":n6").innerHTML = "helloworld";
+            document.getElementsByClassName("Am Al editable LW-avf")[0].innerHTML = "helloworld";
             shouldChange = false;
         }
 
