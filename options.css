@@ -1,0 +1,131 @@
+h1{
+    font-size: 1.5em;
+    font-weight: normal;
+    line-height: 1;
+    user-select: none;
+    width: 400px;
+    padding: 0;
+    color: #485766
+    float:right;
+
+}
+#add-button{
+    float:right;
+    top:-69px;
+    position:relative;
+}
+#no-email-message{
+    font-size: 30;
+    visibility: hidden;
+    width:714px;
+    position: relative;
+    left: 341px;
+    top:100px;
+    color: #485766
+}
+
+header{
+    width: 738px;
+    left: 341px;
+    height: 53px;
+    position: fixed;;
+}
+
+#main-content{
+    width:714px;
+    position: relative;
+    left: 341px;
+    top:100px;
+}
+
+
+
+.email-title {
+    color:rgb(48, 57, 66);
+    display: inline;
+    font-size: 14px;
+    margin: 0px;
+    font-weight: 500px;
+    width: 699px;
+
+}
+.email-container{
+    width:714px;
+    height: 165px;
+    padding: none;
+}
+
+.delete-button{
+    width: 15px;
+    background-position: -1px -4px;
+    margin-left: 1px;
+    margin-right: 2px;
+    margin-top: 2px;
+    height: 22px;
+    opacity: 0.8;
+    background: url(trash.png) 0 0 no-repeat;
+    float:left;
+    position: relative;
+    left:7px;
+}
+
+#myPopup{
+    width: 1000px;
+    height: 700px;
+
+}
+
+.email-field{
+    width:513.61px;
+    height: 46px;
+    margin: 5px;
+    position: relative;
+    left:-5px;
+    color:rgb(115, 119, 122);
+}
+
+.enable-checkbox{
+
+}
+
+.email-options{
+    width: 133.39;
+    height: 165px;
+    float: left;
+}
+
+.enabled-text{
+    visibility: visible;
+    position: absolute;
+}
+
+.enable-text{
+    visibility: hidden;
+    position: absolute;
+}
+
+.main-email-content{
+    width: 580.61px;
+    height: 165px;
+    float: left;
+}
+
+
+.enable-checkbox{
+    width:100px;
+    float:left;
+    height: 29px;
+}
+
+.enable-checkbox-text{
+    width: 63;
+    height: 15;
+}
+
+label{
+    align-items: center;
+    display: inline-flex;
+    user-select: none;
+    width: 84.19px;
+    height: 29px;
+}

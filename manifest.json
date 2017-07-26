@@ -19,5 +19,6 @@
       "matches": ["https://mail.google.com/mail/*"],
       "js": ["myscript.js"]
   }
-  ]
+  ],
+  "options_page": "options.html"
 }
