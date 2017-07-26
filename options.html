@@ -4,7 +4,6 @@
     <title>Email Creator</title>
     <script type="text/javascript" src="jquery-3.2.1.js"></script>
     <script type="text/javascript" src="options.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="jquery.mobile-1.4.5.min.css">
     <script src="jquery-1.11.3.min.js"></script>
     <script src="jquery.mobile-1.4.5.min.js"></script>
@@ -18,8 +17,10 @@
 
 
           <div data-role="popup" id="myPopup" class="ui-content" data-overlay-theme="a">
-              <textarea id="email-input"name="Text1" cols="40" rows="5"></textarea>
-              <div class="done-button">done</div>
+              <div class="email-name-input" contentEditable=true>New Email</div>
+              <div class="seperator"></div>
+              <div class="email-input" contentEditable=true></div>
+              <div class="done-button">Finished Composing</div>
           </div>
 
 
@@ -27,7 +28,5 @@
     </header>
     <div id="main-content"></div>
     <div id="no-email-message">you haven't created any email templates yet</div>
-
-
 </body>
 </html>

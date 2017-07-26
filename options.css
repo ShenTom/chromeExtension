@@ -9,6 +9,8 @@ h1{
     float:right;
 
 }
+
+
 #add-button{
     float:right;
     top:-69px;
@@ -28,7 +30,8 @@ header{
     width: 738px;
     left: 341px;
     height: 53px;
-    position: fixed;;
+    position: fixed;
+    background-color: rgb(249,249,249)
 }
 
 #main-content{
@@ -55,6 +58,7 @@ header{
     padding: none;
 }
 
+
 .delete-button{
     width: 15px;
     background-position: -1px -4px;
@@ -71,8 +75,7 @@ header{
 
 #myPopup{
     width: 1000px;
-    height: 700px;
-
+    min-height: 700px;
 }
 
 .email-field{
@@ -82,11 +85,10 @@ header{
     position: relative;
     left:-5px;
     color:rgb(115, 119, 122);
+    text-overflow: clip;
 }
 
-.enable-checkbox{
 
-}
 
 .email-options{
     width: 133.39;
@@ -110,6 +112,41 @@ header{
     float: left;
 }
 
+.email-input{
+    overflow: auto;
+    min-height: 400px;
+    max-height: 550px;
+    outline: none;
+    position: relative;
+    top:20px;
+    display: block;
+}
+
+.done-button{
+    width: 1000px;
+    height: 90px;
+    background: red;
+    position: absolute;
+    bottom: 10px;
+    display: block;
+    color: white;
+    text-align: center;
+    font-size: 30;
+}
+
+.email-name-input{
+    font-size: 22;
+    font-weight: 400;
+    outline: none;
+}
+
+.seperator{
+    background-color: rgb(238,238,238);
+    height: 1px;
+    width: 900px;
+    position: relative;
+    top:10px;
+}
 
 .enable-checkbox{
     width:100px;

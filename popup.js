@@ -11,7 +11,7 @@ function sendInsertRequest() {
     chrome.tabs.sendMessage(activeTab.id, {"message": "clicked_browser_action"});
     console.log("sent");
   });
-    
+
 }
 
-//chrome.tabs.create({ 'url': 'options.html' });
+chrome.tabs.create({ 'url': 'options.html' });
