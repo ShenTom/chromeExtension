@@ -1,4 +1,5 @@
 
+
 //document.getElementById("myBtn").addEventListener("click", insert);
 
 function sendInsertRequest() {
@@ -10,3 +11,5 @@ function sendInsertRequest() {
   });
     
 }
+
+chrome.tabs.create({ 'url': 'options.html' });
