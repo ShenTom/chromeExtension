@@ -34,19 +34,20 @@ function insertEmailContent(content) {
         }
         console.log(res);
         document.getElementsByClassName("Am Al editable LW-avf")[0].innerHTML = res;
-        
+
     }
 }
 
 function wipeEmailContent() {
     if (document.getElementsByClassName("Am Al editable LW-avf").length > 0) {
         document.getElementsByClassName("Am Al editable LW-avf")[0].innerHTML = "";
-        
-    }    
+
+    }
 }
 
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
+    console.log("fd");
     if(request.message == "insert" ) {
       console.log("received insert request!");
       insertEmailContent(retreivedData);
@@ -63,4 +64,3 @@ chrome.runtime.onMessage.addListener(
     }
   }
 );
-
