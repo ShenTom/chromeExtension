@@ -67,7 +67,7 @@ header{
     margin-top: 2px;
     height: 22px;
     opacity: 0.8;
-    background: url(trash.png) 0 0 no-repeat;
+    background: url(src/trash.png) 0 0 no-repeat;
     float:left;
     position: relative;
     left:7px;
