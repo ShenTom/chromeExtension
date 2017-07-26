@@ -26,20 +26,6 @@ function insertEmailContent(content) {
                         numDiv += 9;
                     }
                 }
-
-                        if (content[i-2] == "/" && content[i-1] == "n"){
-                            res = res.slice(0, i+numDiv) + "<br>" + "</div>" + "<div>" + content.slice(i+2,);
-                            numDiv += 13;
-                        } else {
-                            res = res.slice(0, i+numDiv) + "</div>" + "<div>" + content.slice(i+2,);
-                            numDiv += 9;
-                        }
-                    }
-                }
-
-                if (i == content.length -1 && isFirst!= true) {
-                    res += "</div>";
-                }
             }
 
             if (i == content.length -1 && isFirst!= true) {

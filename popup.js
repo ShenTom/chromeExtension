@@ -1,6 +1,8 @@
-
-
-//document.getElementById("myBtn").addEventListener("click", insert);
+$(document).ready(function(){
+    $('#x').click(function(e){
+        sendInsertRequest();
+    });
+});
 
 function sendInsertRequest() {
   // Send a message to the active tab
@@ -12,4 +14,4 @@ function sendInsertRequest() {
     
 }
 
-chrome.tabs.create({ 'url': 'options.html' });
+//chrome.tabs.create({ 'url': 'options.html' });
