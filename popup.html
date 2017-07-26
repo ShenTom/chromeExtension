@@ -1,24 +1,47 @@
 <!doctype html>
 <!--
- This page is shown when the extension button is clicked, because the
- "browser_action" field in manifest.json contains the "default_popup" key with
- value "popup.html".
+
  -->
 <html>
   <head>
-    <title>Getting Started Extension's Popup</title>
+    <title>Email Writer</title>
     <style>
-      body {
+      #container {
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-        font-size: 100%;
+        width: 250px;
+        height: 250px;
+        overflow-y: scroll;
       }
-      #status {
-        /* avoid an excessively wide status text */
-        white-space: pre;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        max-width: 400px;
+      #title {
+        text-align: center;
+        border-bottom: 1px solid #e5e5e5;
       }
+      .logo {
+        cursor: pointer;
+      }
+      .box {
+        background-color: #eee; 
+        width: 210px;
+        height: 130px;
+        text-align: center;
+        display: block;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-radius: 5px;
+        margin: auto;
+      }
+      .box:hover{
+        box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+      }
+      .mailContent {
+        background-color: white;
+        border-radius: 5px;
+      }
+      .mailContent p {
+        overflow-x: hidden;
+        overflow-y: hidden;
+      }
+      
     </style>
 
     <!--
@@ -32,7 +55,22 @@
     
   </head>
   <body>
-    <div id="status"><p>Hi, click the button below.<p></div>
-    <button id="x">Insert!</button>
+    <div id="container">
+        <div id="title">
+            <img src="src/logo.png" class="logo">
+        </div>
+        <div id="wrapper">
+            <p style="margin: 0 0 15 0">"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
+            <div class="box">
+                <div class="mailContent">
+                    <p>blandit sed justo efficitur porttitor. Sed vel ipsum accumsan, pulvinar ante eget, rutrum mauris. In non dui laoreet, lacinia felis ac, sodales arcu. Fusce in commodo tellus. Maecenas egestas ex a dui euismod consequat. </p>
+                </div>
+            </div>
+            <p>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
+        </div>
+        <footer id="footer">
+            <p>&copy; ShenandFeng 2017</p>
+        </footer>
+    </div>
   </body>
 </html>

@@ -1,17 +1,37 @@
+
 $(document).ready(function(){
-    $('#x').click(function(e){
+    var click = false;
+    $('#box').mouseenter(function(e){
         sendInsertRequest();
     });
-});
+    $('#box').click(function(e){
+        click = true;
+    });
+    $('#box').mouseleave(function(e){
+        if (click == false) {
+            sendWipeRequest();
+        }
+    });
+})
 
 function sendInsertRequest() {
   // Send a message to the active tab
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     var activeTab = tabs[0];
-    chrome.tabs.sendMessage(activeTab.id, {"message": "clicked_browser_action"});
-    console.log("sent");
-  });
-    
+    chrome.tabs.sendMessage(activeTab.id, {"message": "insert"});
+    console.log("sent insert");
+  });  
 }
+
+
+function sendWipeRequest() {
+  // Send a message to the active tab
+  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+    var activeTab = tabs[0];
+    chrome.tabs.sendMessage(activeTab.id, {"message": "wipe"});
+    console.log("sent wipe");
+  });  
+}
+
 
 //chrome.tabs.create({ 'url': 'options.html' });

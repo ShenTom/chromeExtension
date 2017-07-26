@@ -38,14 +38,29 @@ function insertEmailContent(content) {
     }
 }
 
+function wipeEmailContent() {
+    if (document.getElementsByClassName("Am Al editable LW-avf").length > 0) {
+        document.getElementsByClassName("Am Al editable LW-avf")[0].innerHTML = "";
+        
+    }    
+}
 
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
-    if(request.message == "clicked_browser_action" ) {
-      console.log("received request!");
+    if(request.message == "insert" ) {
+      console.log("received insert request!");
       insertEmailContent(retreivedData);
     }
   }
 );
 
+
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+    if(request.message == "wipe" ) {
+      console.log("received wipe request!");
+      wipeEmailContent();
+    }
+  }
+);
 
