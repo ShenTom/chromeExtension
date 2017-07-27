@@ -10,13 +10,12 @@ function saveUserContent() {
 }
 
 
-var retreivedData = "Hello Tom!/n/nI am Edward./n/nHere is my secret./nI think I am very handsome."; //change this to the retrieved data
-
 function insertEmailContent(content) {
     //insert content to the mail textarea
     if (document.getElementsByClassName("Am Al editable LW-avf").length > 0) {
         //chop the message into different divisions based on "/n"
         //for loop to add div tag to message
+        /*
         var isFirst = true;
         var res = "";
         var numDiv =0;
@@ -43,8 +42,9 @@ function insertEmailContent(content) {
                 res += "</div>";
             }
         }
-        console.log(res);
-        document.getElementsByClassName("Am Al editable LW-avf")[0].innerHTML = res;
+        */
+        console.log(content);
+        document.getElementsByClassName("Am Al editable LW-avf")[0].innerHTML = content;
 
     }
 }
@@ -58,10 +58,10 @@ function resetEmailContent() {
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     console.log("fd");
-    if(request.message == "insert" ) {
+    if(request.message[0] == "insert" ) {
       console.log("received insert request!");
       saveUserContent();
-      insertEmailContent(retreivedData);
+      insertEmailContent(request.message[1]);
     }
   }
 );

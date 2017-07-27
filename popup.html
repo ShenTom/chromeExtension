@@ -6,6 +6,10 @@
   <head>
     <title>Email Writer</title>
     <style>
+      p {
+        font-weight: bolder;
+        text-align: center;
+      }
       #container {
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
         width: 250px;
@@ -63,11 +67,11 @@
         opacity: 0.97;
       }
         .overlay {
-          position: relative;
-          bottom: 110px;
-          right: 5px;
-          height: 130px;
-          width: 200px;
+          position: sticky;
+          bottom: 100px;
+          right: 20px;
+          height: 120px;
+          width: 190px;
           opacity: 0;
           transition: .5s ease;
           background-color: #20B2AA;
@@ -103,14 +107,6 @@
         </div>
         <div id="wrapper">
             <p style="margin: 0 0 15 0">"This extension allows the user to save and load email content."</p>
-            <div class="box">
-                <div class="mailContent">
-                    Hi Tom,<div><br></div><div>Stop sniffing, are you a dog? You nasty dog.</div><div><br></div><div>Best,</div><div>Edward.</div>
-                    <div class="overlay">
-                        <div class="name">New Email</div>
-                    </div>
-                </div>
-            </div>
         </div>
         <footer id="footer">
             <p>&copy; Tom Shen, Edward Feng 2017</p>

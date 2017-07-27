@@ -22,7 +22,7 @@
   "content_scripts": [
     {
       "matches": ["https://mail.google.com/mail/*"],
-      "js": ["jquery-3.2.1.js","myscript.js"]
+      "js": ["jquery-3.2.1.js","content.js"]
   }
   ],
 
