@@ -1,13 +1,13 @@
 
 $(document).ready(function(){
     var click = false;
-    $('#box').mouseenter(function(e){
+    $('.box').mouseenter(function(e){
         sendInsertRequest();
     });
-    $('#box').click(function(e){
+    $('.box').click(function(e){
         click = true;
     });
-    $('#box').mouseleave(function(e){
+    $('.box').mouseleave(function(e){
         if (click == false) {
             sendWipeRequest();
         }
@@ -20,7 +20,7 @@ function sendInsertRequest() {
     var activeTab = tabs[0];
     chrome.tabs.sendMessage(activeTab.id, {"message": "insert"});
     console.log("sent insert");
-  });
+  });  
 }
 
 
@@ -30,7 +30,7 @@ function sendWipeRequest() {
     var activeTab = tabs[0];
     chrome.tabs.sendMessage(activeTab.id, {"message": "wipe"});
     console.log("sent wipe");
-  });
+  });  
 }
 
 
