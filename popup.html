@@ -16,6 +16,17 @@
           height: 40px;
         border-bottom: 1px solid #e5e5e5;
       }
+      .options-button{
+          cursor: pointer;
+          width: 60px;
+          height:30px;
+          position: relative;
+          top:3px;
+          float:right;
+          text-align: center;
+          font-weight: bolder;
+          color: #20B2AA;
+      }
       .logo {
           position: relative;
           float:right;
@@ -39,21 +50,38 @@
       .mailContent {
         background-color: white;
         border-radius: 5px;
+        height: 110px;
+        width: 190px;
+        padding-top: 5px;
+        padding-right: 5px;
+        padding-left: 5px;
+        margin-left: 5px; 
+        padding-bottom: 15px;
+        overflow: hidden;
       }
-      .mailContent p {
-        overflow-x: hidden;
-        overflow-y: hidden;
+        .mailContent:hover .overlay{
+        opacity: 0.97;
       }
-      .options-button{
-          width: 60px;
-          height:30px;
+        .overlay {
           position: relative;
-          top:3px;
-          float:right;
-          background-color: red;
-          text-align: center;
+          bottom: 110px;
+          right: 5px;
+          height: 130px;
+          width: 200px;
+          opacity: 0;
+          transition: .5s ease;
+          background-color: #20B2AA;
+        }
+
+        .name {
           color: white;
-      }
+          font-size: 20px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+        }
     </style>
 
     <!--
@@ -69,21 +97,23 @@
   <body>
     <div id="container">
         <div id="title">
-            <div class="options-button">options</div>
+            <div class="options-button">OPTION</div>
             <img src="src/logo.png" class="logo">
 
         </div>
         <div id="wrapper">
-            <p style="margin: 0 0 15 0">"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
+            <p style="margin: 0 0 15 0">"This extension allows the user to save and load email content."</p>
             <div class="box">
                 <div class="mailContent">
-                    <p>blandit sed justo efficitur porttitor. Sed vel ipsum accumsan, pulvinar ante eget, rutrum mauris. In non dui laoreet, lacinia felis ac, sodales arcu. Fusce in commodo tellus. Maecenas egestas ex a dui euismod consequat. </p>
+                    Hi Tom,<div><br></div><div>Stop sniffing, are you a dog? You nasty dog.</div><div><br></div><div>Best,</div><div>Edward.</div>
+                    <div class="overlay">
+                        <div class="name">New Email</div>
+                    </div>
                 </div>
             </div>
-            <p>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
         </div>
         <footer id="footer">
-            <p>&copy; ShenandFeng 2017</p>
+            <p>&copy; Tom Shen, Edward Feng 2017</p>
         </footer>
     </div>
   </body>

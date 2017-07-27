@@ -1,9 +1,20 @@
+var currentContent = ""; //user's content in the mail textarea
+
+
+function saveUserContent() {
+    //save the user's content in the var currentContent
+    if (document.getElementsByClassName("Am Al editable LW-avf").length > 0) {
+        currentContent = document.getElementsByClassName("Am Al editable LW-avf")[0].innerHTML;
+    }
+    console.log(currentContent);
+}
+
 
 var retreivedData = "Hello Tom!/n/nI am Edward./n/nHere is my secret./nI think I am very handsome."; //change this to the retrieved data
 
 function insertEmailContent(content) {
+    //insert content to the mail textarea
     if (document.getElementsByClassName("Am Al editable LW-avf").length > 0) {
-
         //chop the message into different divisions based on "/n"
         //for loop to add div tag to message
         var isFirst = true;
@@ -38,10 +49,9 @@ function insertEmailContent(content) {
     }
 }
 
-function wipeEmailContent() {
-    if (document.getElementsByClassName("Am Al editable LW-avf").length > 0) {
-        document.getElementsByClassName("Am Al editable LW-avf")[0].innerHTML = "";
-
+function resetEmailContent() {
+    if (document.getElementsByClassName("Am Al editable LW-avf").length > 0) { 
+        document.getElementsByClassName("Am Al editable LW-avf")[0].innerHTML = currentContent;
     }
 }
 
@@ -50,6 +60,7 @@ chrome.runtime.onMessage.addListener(
     console.log("fd");
     if(request.message == "insert" ) {
       console.log("received insert request!");
+      saveUserContent();
       insertEmailContent(retreivedData);
     }
   }
@@ -59,8 +70,8 @@ chrome.runtime.onMessage.addListener(
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     if(request.message == "wipe" ) {
-      console.log("received wipe request!");
-      wipeEmailContent();
+      console.log("received reset request!");
+      resetEmailContent();
     }
   }
 );

@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
 
-  "name": "Getting started example",
+  "name": "Email Writer",
   "description": "This extension shows a Google Image search result for the current page",
   "version": "1.0",
 
@@ -22,7 +22,7 @@
   "content_scripts": [
     {
       "matches": ["https://mail.google.com/mail/*"],
-      "js": ["myscript.js"]
+      "js": ["jquery-3.2.1.js","myscript.js"]
   }
   ],
 
