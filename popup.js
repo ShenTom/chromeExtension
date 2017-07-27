@@ -1,5 +1,6 @@
 
 $(document).ready(function(){
+    //can only work for one click
     var click = false;
     $('.box').mouseenter(function(e){
         sendInsertRequest();
