@@ -111,35 +111,57 @@ function delete_button_handler(){
     });
     $('.main-email-content').click(function(e){
         if($(this).height() == 165) {
-            $(this).animate({
-                height: 465
-            },400);
-            $(this).find('.email-field').animate({
-                height: 350
-            },400);
-            $('html, body').animate({
-                scrollTop: $(this).parent().offset().top - 100
-            }, 400);
-            $(this).find('.email-field').attr('contentEditable','true');
-            $(this).find('.email-field').attr('overflow','scroll');
-            $(this).find('.email-field').css('background-color','white');
-            $(this).append("<div class=\"done-editing-button\">Save</div>");
-            $(this).find('.email-title').attr('contentEditable','true');
-            $('.done-editing-button').click(function(e){
-                $(this).parent().animate({
-                    height: 165
-                },1000);
-                $(this).parent().find('.email-field').animate({
+            var t = $(this);
+            if($(".done-editing-button")[0]){
+                var a = $(".done-editing-button").parent().find('.email-field').animate({
                     height: 100,
                     scrollTop: 0
-                },1000);
-                $(this).parent().find('.email-field').attr('contentEditable','false');
-                $(this).parent().find('.email-field').attr('overflow','hidden');
-                $(this).find('.email-title').attr('contentEditable','false');
-                edit_email($(this).parent().find('.email-field').html(),$(this).parent().parent().attr('id'), $(this).parent().find('.email-title').html());
-                $(this).remove();
-                updateEmails();
-            });
+                }, { duration: 200, queue: false }).promise();
+                var b = $(".done-editing-button").parent().animate({
+                    height: 165
+                }, { duration: 200, queue: false }).promise();
+                $.when(a,b).then(function() {
+                    $(".done-editing-button").parent().find('.email-field').attr('contentEditable','false');
+                    $(".done-editing-button").parent().find('.email-field').attr('overflow','hidden');
+                    $(".done-editing-button").find('.email-title').attr('contentEditable','false');
+                    $(".done-editing-button").remove();
+                    updateEmails();
+                });
+            } else {
+                var a = $(this).animate({
+                    height: 465
+                }, { duration: 200, queue: false }).promise();
+                var b = $(this).find('.email-field').animate({
+                    height: 350
+                }, { duration: 200, queue: false }).promise();
+                var c = $('html, body').animate({
+                    scrollTop: $(this).parent().offset().top - 59
+                }, { duration: 200, queue: false }).promise();
+                $.when(a,b,c).then(function() {
+                    t.find('.email-field').attr('contentEditable','true');
+                    t.find('.email-field').attr('overflow','scroll');
+                    t.append("<div class=\"done-editing-button\">Save</div>");
+                    t.find('.email-title').attr('contentEditable','true');
+
+                    $('.done-editing-button').click(function(e){
+                        edit_email($(this).parent().find('.email-field').html(),$(this).parent().parent().attr('id'), $(this).parent().find('.email-title').html());
+                        var a = $(this).parent().find('.email-field').animate({
+                            height: 100,
+                            scrollTop: 0
+                        }, { duration: 200, queue: false }).promise();
+                        var b = $(this).parent().animate({
+                            height: 165
+                        }, { duration: 200, queue: false }).promise();
+                        $.when(a,b).then(function() {
+                            $(this).parent().find('.email-field').attr('contentEditable','false');
+                            $(this).parent().find('.email-field').attr('overflow','hidden');
+                            $(this).find('.email-title').attr('contentEditable','false');
+                            $(this).remove();
+                            updateEmails();
+                        });
+                    });
+                });
+            }
         }
     });
     $('.delete-button').click(function(e) {
@@ -170,6 +192,9 @@ function delete_button_handler(){
         if($(this).text().length === 50 && event.keyCode != 8) {
             event.preventDefault();
         }
+        if($(this).text().length === 0 && event.keyCode == 8) {
+            event.preventDefault();
+        }
     });
 }
 
@@ -186,7 +211,7 @@ function update_email_status(status,email_name){
 }
 
 function edit_email(content,name,updated_name){
-    console.log(name,content,updated_name);
+    //console.log(name,updated_name,content);
     chrome.storage.local.get("emails",function(result){
         var d = JSON.parse(result["emails"]);
         d[name] = [content, d[name][1]];
