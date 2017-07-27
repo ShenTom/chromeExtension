@@ -19,13 +19,8 @@ $( document ).ready(function() {
     done_button_handler();
     // add handler to delete-button
     delete_button_handler();
-    $('.enabled-check-box').change(function(){
-        if(this.checked) {
-            console.log("checked");
-        } else {
-            console.log("not checked");
-        }
-    });
+
+
 });
 
 function updateEmails(){
@@ -114,6 +109,44 @@ function delete_button_handler(){
             update_email_status(false, $(this).parent().parent().parent().parent().attr('id'))
         }
     });
+    $('.main-email-content').click(function(e){
+        if($(this).height() == 165) {
+            $(this).animate({
+                height: 465
+            },400);
+            $(this).find('.email-field').animate({
+                height: 350
+            },400);
+            $('html, body').animate({
+                scrollTop: $(this).parent().offset().top - 100
+            }, 400);
+            $(this).find('.email-field').attr('contentEditable','true');
+            $(this).find('.email-field').attr('overflow','scroll');
+            $(this).append("<div class=\"done-editing-button\">Save</div>");
+            $('.done-editing-button').click(function(e){
+                $(this).parent().animate({
+                    height: 165
+                },400);
+                $(this).parent().find('.email-field').animate({
+                    height: 100,
+                    scrollTop: 0
+                },400);
+                $(this).parent().find('.email-field').attr('contentEditable','false');
+                $(this).parent().find('.email-field').attr('overflow','hidden');
+                edit_email($(this).parent().find('.email-field').html(),$(this).parent().parent().attr('id'));
+                $(this).parent().find('.done-editing-button').remove();
+                updateEmails();
+            });
+        }
+    });
+    /*
+    $('.email-field').on( 'mousewheel DOMMouseScroll', function (e) {
+        var e0 = e.originalEvent;
+        var delta = e0.wheelDelta || -e0.detail;
+        this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+        e.preventDefault();
+    });
+    */
     $('.delete-button').click(function(e) {
         var id = $(this).parent().parent().attr('id');
         chrome.storage.local.get('email_count', function (result) {
@@ -130,6 +163,13 @@ function delete_button_handler(){
                 });
         });
     });
+    $('.enabled-check-box').change(function(){
+        if(this.checked) {
+            console.log("checked");
+        } else {
+            console.log("not checked");
+        }
+    });
 }
 
 function update_email_status(status,email_name){
@@ -140,6 +180,19 @@ function update_email_status(status,email_name){
         d = JSON.stringify(d);
         chrome.storage.local.set({"emails" :d},function(){
             updateEmails();
+        });
+    });
+}
+
+function edit_email(content,name){
+    console.log(name,content);
+    chrome.storage.local.get("emails",function(result){
+        var d = JSON.parse(result["emails"]);
+        d[name] = [content, d[name][1]];
+        d = JSON.stringify(d);
+        chrome.storage.local.set({"emails" :d},function(){
+            updateEmails();
+            $( "#myPopup" ).popup( "close" );
         });
     });
 }

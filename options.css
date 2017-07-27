@@ -78,14 +78,34 @@ header{
     min-height: 700px;
 }
 
+.ui-page {
+    background: #2b2e31;
+}
+.ui-page-theme-a {
+    background: white;
+}
+.ui-page-active{
+    background: white;
+}
+
+.done-editing-button{
+    width:513.61px;
+    height:50px;
+    background-color:red;
+    color: white;
+    font-size: 32;
+    text-align: center;
+}
+
 .email-field{
     width:513.61px;
-    height: 46px;
+    height: 100px;
     margin: 5px;
     position: relative;
     left:-5px;
     color:rgb(115, 119, 122);
-    text-overflow: clip;
+    overflow:hidden;
+    outline: none;
 }
 
 
@@ -97,13 +117,13 @@ header{
 }
 
 .enabled-text{
-    visibility: visible;
+
     position: absolute;
     font-weight: 400;
 }
 
 .enable-text{
-    visibility: hidden;
+
     position: absolute;
 }
 
