@@ -5,8 +5,8 @@ h1{
     user-select: none;
     width: 400px;
     padding: 0;
-    color: #485766;
-
+    color: #20B2AA;
+    font-weight: bolder;
 }
 
 #T1{
@@ -157,15 +157,25 @@ header{
 }
 
 .done-button{
-    width: 1000px;
-    height: 90px;
-    background: red;
+    cursor: pointer;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #20B2AA;
+    padding-top: 10px;
+    width: 400px;
+    height: 50px;
     position: absolute;
+    right: 300px;
     bottom: 10px;
     display: block;
-    color: white;
+    color: #20B2AA;
     text-align: center;
     font-size: 30;
+    font-weight: bolder;
+}
+
+.done-button:hover{
+    box-shadow: 0 0 5px 2px rgba(0, 140, 186, 0.5);
 }
 
 .email-name-input{

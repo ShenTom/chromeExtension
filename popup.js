@@ -35,6 +35,7 @@ $(document).ready(function(){
             if (click == false) {
                 sendResetRequest();
             }
+            click = false;
         });
     });
 })
@@ -44,8 +45,10 @@ $(document).ready(function(){
 //Sample box
 /*
 <div class="box">
-    <div class="mailContent" id="1">
-        Hi Tom,<div><br></div><div>Stop sniffing, are you a dog? You nasty dog.</div><div><br></div><div>Best,</div><div>Edward.</div>
+    <div class="mailContent">
+        <div class="content">
+            Hi Tom,<div><br></div><div>Stop sniffing, are you a dog? You nasty dog.</div><div><br></div><div>Best,</div><div>Edward.</div>
+        </div>
         <div class="overlay">
             <div class="name">New Email</div>
         </div>
