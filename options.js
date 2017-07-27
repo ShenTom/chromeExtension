@@ -192,6 +192,9 @@ function delete_button_handler(){
         if($(this).text().length === 50 && event.keyCode != 8) {
             event.preventDefault();
         }
+        if($(this).text().length === 0 && event.keyCode == 8) {
+            event.preventDefault();
+        }
     });
 }
 

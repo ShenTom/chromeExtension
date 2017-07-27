@@ -105,15 +105,13 @@ header{
 
 .email-title {
     color:rgb(48, 57, 66);
-    display: inline;
+
     font-size: 14px;
     margin: 0px;
     font-weight: 500px;
-    width: 699px;
-    white-space:nowrap;
+    max-width:600px;
     outline: none;
     overflow: hidden;
-    max-width: 580.61px;
     height: 16px;
 }
 
