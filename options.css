@@ -43,15 +43,6 @@ header{
 
 
 
-.email-title {
-    color:rgb(48, 57, 66);
-    display: inline;
-    font-size: 14px;
-    margin: 0px;
-    font-weight: 500px;
-    width: 699px;
-
-}
 .email-container{
     width:714px;
     height: 165px;
@@ -106,6 +97,24 @@ header{
     color:rgb(115, 119, 122);
     overflow:hidden;
     outline: none;
+}
+
+.email-title {
+    color:rgb(48, 57, 66);
+    display: inline;
+    font-size: 14px;
+    margin: 0px;
+    font-weight: 500px;
+    width: 699px;
+    white-space:nowrap;
+    outline: none;
+    overflow: hidden;
+    max-width: 580.61px;
+    height: 16px;
+}
+
+.email-title br{
+    display: none;
 }
 
 
