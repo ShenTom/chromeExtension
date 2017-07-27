@@ -15,7 +15,14 @@ $(document).ready(function(){
     $('.options-button').click(function(e){
         chrome.tabs.create({ 'url': 'options.html' });
     });
+    // gets all emails in database
+
+    chrome.storage.local.get("emails",function(result){
+        var r =  result["emails"];
+        // you have to do everything with the emails inside this call back function
+    });
 })
+
 
 function sendInsertRequest() {
   // Send a message to the active tab

@@ -44,7 +44,15 @@ function updateEmails(){
             for (i in d) {
                 var enabled = d[i][1];
                 var check_box_value = "";
-                if(enabled) check_box_value = "checked";
+                var enabled_text_style = "hidden";
+                var enable_text_style = "hidden";
+                if(enabled) {
+                    check_box_value = "checked";
+                    enabled_text_style = "visible";
+                } else {
+                    enable_text_style = "visible";
+                }
+
                 $("#main-content").append("\
                     <div class=\"email-container\" id=\""+i+"\" >\
                         <div class=\"main-email-content\">\
@@ -56,8 +64,8 @@ function updateEmails(){
                                 <label>\
                                     <input class=\"enabled-check-box\" type=\"checkbox\" focus-type=\"enabled\" "+check_box_value +"></input>\
                                     <span class=\"enable-checkbox-text\" >\
-                                        <span class=\"enabled-text\">Enabled</span>\
-                                        <span class=\"enable-text\">enable</span>\
+                                        <span class=\"enabled-text\" style=\"visibility:"+enabled_text_style+";\">Enabled</span>\
+                                        <span class=\"enable-text\" style=\"visibility:"+enable_text_style+";\">enable</span>\
                                     </span>\
                                 </label>\
                             </div>\
@@ -98,10 +106,12 @@ function delete_button_handler(){
             console.log("checked");
             $(this).parent().find('.enable-checkbox-text').find('.enable-text').css('visibility','hidden');
             $(this).parent().find('.enable-checkbox-text').find('.enabled-text').css('visibility','visible');
+            update_email_status(true, $(this).parent().parent().parent().parent().attr('id'))
         } else {
             console.log("not checked");
             $(this).parent().find('.enable-checkbox-text').find('.enabled-text').css('visibility','hidden');
             $(this).parent().find('.enable-checkbox-text').find('.enable-text').css('visibility','visible');
+            update_email_status(false, $(this).parent().parent().parent().parent().attr('id'))
         }
     });
     $('.delete-button').click(function(e) {
@@ -118,6 +128,18 @@ function delete_button_handler(){
                         });
                     });
                 });
+        });
+    });
+}
+
+function update_email_status(status,email_name){
+    console.log(email_name,status);
+    chrome.storage.local.get("emails",function(result){
+        var d = JSON.parse(result["emails"]);
+        d[email_name][1] = status;
+        d = JSON.stringify(d);
+        chrome.storage.local.set({"emails" :d},function(){
+            updateEmails();
         });
     });
 }
