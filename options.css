@@ -43,15 +43,6 @@ header{
 
 
 
-.email-title {
-    color:rgb(48, 57, 66);
-    display: inline;
-    font-size: 14px;
-    margin: 0px;
-    font-weight: 500px;
-    width: 699px;
-
-}
 .email-container{
     width:714px;
     height: 165px;
@@ -78,14 +69,52 @@ header{
     min-height: 700px;
 }
 
+.ui-page {
+    background: #2b2e31;
+}
+.ui-page-theme-a {
+    background: white;
+}
+.ui-page-active{
+    background: white;
+}
+
+.done-editing-button{
+    width:513.61px;
+    height:50px;
+    background-color:red;
+    color: white;
+    font-size: 32;
+    text-align: center;
+}
+
 .email-field{
     width:513.61px;
-    height: 46px;
+    height: 100px;
     margin: 5px;
     position: relative;
     left:-5px;
     color:rgb(115, 119, 122);
-    text-overflow: clip;
+    overflow:hidden;
+    outline: none;
+}
+
+.email-title {
+    color:rgb(48, 57, 66);
+    display: inline;
+    font-size: 14px;
+    margin: 0px;
+    font-weight: 500px;
+    width: 699px;
+    white-space:nowrap;
+    outline: none;
+    overflow: hidden;
+    max-width: 580.61px;
+    height: 16px;
+}
+
+.email-title br{
+    display: none;
 }
 
 
@@ -97,13 +126,13 @@ header{
 }
 
 .enabled-text{
-    visibility: visible;
+
     position: absolute;
     font-weight: 400;
 }
 
 .enable-text{
-    visibility: hidden;
+
     position: absolute;
 }
 
