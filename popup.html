@@ -13,14 +13,17 @@
         overflow-y: scroll;
       }
       #title {
-        text-align: center;
+          height: 40px;
         border-bottom: 1px solid #e5e5e5;
       }
       .logo {
-        cursor: pointer;
+          position: relative;
+          float:right;
+          cursor: pointer;
+          right:46px;
       }
       .box {
-        background-color: #eee; 
+        background-color: #eee;
         width: 210px;
         height: 130px;
         text-align: center;
@@ -41,7 +44,16 @@
         overflow-x: hidden;
         overflow-y: hidden;
       }
-      
+      .options-button{
+          width: 60px;
+          height:30px;
+          position: relative;
+          top:3px;
+          float:right;
+          background-color: red;
+          text-align: center;
+          color: white;
+      }
     </style>
 
     <!--
@@ -52,12 +64,14 @@
      -->
       <script type="text/javascript" src="jquery-3.2.1.js"></script>
     <script type="text/javascript" src="popup.js"></script>
-    
+
   </head>
   <body>
     <div id="container">
         <div id="title">
+            <div class="options-button">options</div>
             <img src="src/logo.png" class="logo">
+
         </div>
         <div id="wrapper">
             <p style="margin: 0 0 15 0">"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>

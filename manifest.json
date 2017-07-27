@@ -14,15 +14,16 @@
   "permissions": [
     "activeTab",
     "tabs",
-    "https://mail.google.com/mail/*",
-    "storage"
+    "storage",
+    "https://mail.google.com/mail/*"
+
   ],
 
   "content_scripts": [
     {
       "matches": ["https://mail.google.com/mail/*"],
       "js": ["myscript.js"]
-    }
+  }
   ],
 
   "options_page": "options.html"

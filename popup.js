@@ -12,6 +12,9 @@ $(document).ready(function(){
             sendWipeRequest();
         }
     });
+    $('.options-button').click(function(e){
+        chrome.tabs.create({ 'url': 'options.html' });
+    });
 })
 
 function sendInsertRequest() {
@@ -32,6 +35,3 @@ function sendWipeRequest() {
     console.log("sent wipe");
   });  
 }
-
-
-//chrome.tabs.create({ 'url': 'options.html' });
