@@ -5,11 +5,14 @@ h1{
     user-select: none;
     width: 400px;
     padding: 0;
-    color: #485766
-    float:right;
+    color: #485766;
 
 }
 
+#T1{
+    z-index: 3;
+    opacity: 0.95;
+}
 
 #add-button{
     float:right;
@@ -47,6 +50,7 @@ header{
     width:714px;
     height: 165px;
     padding: none;
+
 }
 
 
@@ -140,6 +144,8 @@ header{
     width: 580.61px;
     height: 165px;
     float: left;
+    z-index: -1;
+
 }
 
 .email-input{

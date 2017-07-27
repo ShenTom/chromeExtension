@@ -135,7 +135,7 @@ function delete_button_handler(){
                     height: 350
                 }, { duration: 200, queue: false }).promise();
                 var c = $('html, body').animate({
-                    scrollTop: $(this).parent().offset().top - 100
+                    scrollTop: $(this).parent().offset().top - 59
                 }, { duration: 200, queue: false }).promise();
                 $.when(a,b,c).then(function() {
                     t.find('.email-field').attr('contentEditable','true');
