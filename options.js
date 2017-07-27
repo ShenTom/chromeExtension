@@ -122,19 +122,21 @@ function delete_button_handler(){
             }, 400);
             $(this).find('.email-field').attr('contentEditable','true');
             $(this).find('.email-field').attr('overflow','scroll');
+            $(this).find('.email-field').css('background-color','white');
             $(this).append("<div class=\"done-editing-button\">Save</div>");
+
             $('.done-editing-button').click(function(e){
                 $(this).parent().animate({
                     height: 165
-                },400);
+                },1000);
                 $(this).parent().find('.email-field').animate({
                     height: 100,
                     scrollTop: 0
-                },400);
+                },1000);
                 $(this).parent().find('.email-field').attr('contentEditable','false');
                 $(this).parent().find('.email-field').attr('overflow','hidden');
                 edit_email($(this).parent().find('.email-field').html(),$(this).parent().parent().attr('id'));
-                $(this).parent().find('.done-editing-button').remove();
+                $(this).remove();
                 updateEmails();
             });
         }
