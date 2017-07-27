@@ -99,6 +99,7 @@ header{
 .enabled-text{
     visibility: visible;
     position: absolute;
+    font-weight: 400;
 }
 
 .enable-text{
