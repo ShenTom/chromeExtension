@@ -7,19 +7,24 @@ $(document).ready(function(){
     // gets all emails in database
     chrome.storage.local.get("emails",function(result){
         var r =  JSON.parse(result["emails"]);
-        var i = 1;
+        var i = 0;
+        console.log(r.length);
         // you have to do everything with the emails inside this call back function
         //where i am gonna dynamically build the html
         //for loop, check each item's status before add
         for (key in r){
             if (r[key][1] == true){
+                i++;
                 var box = document.getElementById("wrapper").innerHTML;
                 box += buildBox(key, r[key][0]);
                 document.getElementById("wrapper").innerHTML = box;
-                i++;
             }
         }
-        
+        if (i == 0) {
+            var temp = document.getElementById("wrapper").innerHTML;
+            temp += '<div><br></div><p>You do not have any email. Please go to the option page to add a new one or enable saved ones.</p><div><br></div>';
+            document.getElementById("wrapper").innerHTML = temp;
+        }
         
         
         //can only work for one click
