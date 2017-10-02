@@ -36,15 +36,20 @@ chrome.runtime.onMessage.addListener(
       saveUserContent();
       insertEmailContent(request.message[1]);
     }
-  }
-);
-
-
-chrome.runtime.onMessage.addListener(
-  function(request, sender, sendResponse) {
+      
     if(request.message == "reset" ) {
       console.log("received reset request!");
       resetEmailContent();
     }
   }
 );
+
+
+//chrome.runtime.onMessage.addListener(
+//  function(request, sender, sendResponse) {
+//    if(request.message == "reset" ) {
+//      console.log("received reset request!");
+//      resetEmailContent();
+//    }
+//  }
+//);

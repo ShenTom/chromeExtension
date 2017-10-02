@@ -8,8 +8,7 @@ $(document).ready(function(){
     chrome.storage.local.get("emails",function(result){
         var r =  JSON.parse(result["emails"]);
         var i = 0;
-        console.log(r.length);
-        // you have to do everything with the emails inside this call back function
+        // you have to do everything with the emails inside this callback function
         //where i am gonna dynamically build the html
         //for loop, check each item's status before add
         for (key in r){
