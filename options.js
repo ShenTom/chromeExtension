@@ -52,7 +52,7 @@ function updateEmails(){
                     <div class=\"email-container\" id=\""+i+"\" >\
                         <div class=\"main-email-content\">\
                             <div class=\"email-title\">"+ i+"</div>\
-                            <div class=\"email-field\">" +  d[i][0] +"</div>\
+                            <div class=\"email-field\" style=\"cursor: pointer;\">" +  d[i][0] +"</div>\
                         </div>\
                         <div class=\"email-options\">\
                             <div class=\"enable-checkbox\">\
